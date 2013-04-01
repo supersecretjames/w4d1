@@ -10,6 +10,11 @@ class Link < ActiveRecord::Base
   belongs_to :user
   belongs_to :long
 
+  def self.open_short(link, user)
+    link.open
+    Visit.add_visit(link, user)
+  end
+
   def make_short_url
     if long_id && short.nil?
       short_link = SecureRandom.urlsafe_base64
@@ -23,9 +28,16 @@ class Link < ActiveRecord::Base
     Launchy.open(result.long)
   end
 
-  def self.open_short(short_url, user)
-    link = Link.find_by_short(short_url)
-    link.open
-    Visit.add_visit(link, user)
+  def visits
+    Visit.count(self)
   end
+
+  def unique_visits
+    Visit.uniq_count(self)
+  end
+
+  def recent_visits
+    Visit.recent_count(self)
+  end
+
 end
