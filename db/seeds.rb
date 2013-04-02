@@ -28,3 +28,11 @@ Link.open_short(link,user3)
 Link.open_short(link,user4)
 Link.open_short(link2,user)
 Link.open_short(link2,user2)
+Tag.create(:tag=>"funny")
+Tag.create(:tag=>"cool")
+Tag.create(:tag=>"horrible")
+Tag.create(:tag=>"useful")
+
+
+
+

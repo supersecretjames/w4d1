@@ -9,10 +9,17 @@ class Link < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :long
+  has_many :comment
 
   def self.open_short(link, user)
     link.open
     Visit.add_visit(link, user)
+  end
+
+  def self.user_links(user)
+
+    Link.where(:user_id=>user.id)
+
   end
 
   def make_short_url
@@ -39,5 +46,6 @@ class Link < ActiveRecord::Base
   def recent_visits
     Visit.recent_count(self)
   end
+
 
 end
