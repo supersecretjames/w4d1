@@ -13,7 +13,7 @@ class Visit < ActiveRecord::Base
     self.where(:link_id=>link.id).count
   end
 
-  def self.uniq_count(link)
+  def self.uniq_count(link) # REV: Well done!  
 
     self.select("DISTINCT(user_id)")
         .where(:link_id=>link.id)

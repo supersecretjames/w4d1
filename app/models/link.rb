@@ -1,4 +1,6 @@
-require 'securerandom'
+# REV: you don't need to require this file. Rails has a method for 
+#      creating random urlsafe_base65. 
+require 'securerandom' 
 
 class Link < ActiveRecord::Base
 
@@ -35,12 +37,14 @@ class Link < ActiveRecord::Base
     Launchy.open(result.long)
   end
 
+  # REV: These methods are very clean. 
+
   def visits
     Visit.count(self)
   end
 
   def unique_visits
-    Visit.uniq_count(self)
+    Visit.uniq_count(self) 
   end
 
   def recent_visits
