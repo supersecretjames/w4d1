@@ -16,11 +16,15 @@ class Link < ActiveRecord::Base
     Visit.add_visit(link, user)
   end
 
+  #REV This might make more sense as an instance method for users?
+
   def self.user_links(user)
 
     Link.where(:user_id=>user.id)
 
   end
+
+
 
   def make_short_url
     if long_id && short.nil?

@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :username
 
+  #REV Has_many should always be pluralized
+
   has_many :link
   has_many :comment
   has_many :visit
