@@ -32,7 +32,10 @@ Tag.create(:tag=>"funny")
 Tag.create(:tag=>"cool")
 Tag.create(:tag=>"horrible")
 Tag.create(:tag=>"useful")
-
-
+LinkTag.create(:link_id => 1, :tag_id => 3, :user_id => 1)
+LinkTag.create(:link_id => 2, :tag_id => 2, :user_id => 1)
+LinkTag.create(:link_id => 2, :tag_id => 3, :user_id => 2)
+LinkTag.create(:link_id => 1, :tag_id => 2, :user_id => 2)
+LinkTag.create(:link_id => 1, :tag_id => 2, :user_id => 3)
 
 

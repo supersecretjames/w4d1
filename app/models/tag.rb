@@ -4,4 +4,7 @@ class Tag < ActiveRecord::Base
 
   has_many :link_tag
 
+  def most_popular(tag)
+   results = Link.where(:tag_id=>tag.id).limit(5)
+  end
 end
